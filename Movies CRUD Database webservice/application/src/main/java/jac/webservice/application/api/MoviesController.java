@@ -9,6 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
+@CrossOrigin
+
 public class MoviesController {
     @Autowired
     private MoviesService service;
@@ -24,8 +26,12 @@ public class MoviesController {
     }
 
     @PostMapping("/")
-    public Long createMovies(@RequestBody Movies movies) {
-        return service.saveMovies(movies);
+    public ResponseEntity<Long> createMovies(@RequestBody Movies movies){
+        try {
+            return new ResponseEntity<>(service.saveMovies(movies), HttpStatus.CREATED);
+        } catch (Exception exception){
+            return new ResponseEntity(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("/find/{moviesId}")
