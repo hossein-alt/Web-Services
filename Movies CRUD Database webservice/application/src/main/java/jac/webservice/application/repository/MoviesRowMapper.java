@@ -16,6 +16,7 @@ public class MoviesRowMapper implements RowMapper<Movies> {
                 rating(rs.getFloat("rating")).
                 director(rs.getString("director")).
                 cast(rs.getString("cast")).
+//                picName(rs.getString("pic_name")).
                 build();
     }
 }

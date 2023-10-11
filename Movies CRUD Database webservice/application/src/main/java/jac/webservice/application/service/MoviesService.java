@@ -21,6 +21,8 @@ public class MoviesService {
     }
 
     public Long saveMovies(Movies movies) {
+        //whenever the input relates to a logic, we add the validation in service layer
+
         return repository.saveMovies(movies);
     }
 

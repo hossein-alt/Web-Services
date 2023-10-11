@@ -17,4 +17,7 @@ public class Movies {
     private Float rating;
     private String director;
     private String cast;
+
+
+//    private String picName;
 }
