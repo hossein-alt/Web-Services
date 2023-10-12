@@ -6,6 +6,7 @@ function getAllMovies() {
     })
         .done((response) => {
             const data = response;
+            
             const cardContainer = document.getElementById("movie-cardgroup");
             $.each(data, function (index, item) {
                 if (index % 5 === 0) {
@@ -16,6 +17,7 @@ function getAllMovies() {
                 const card = document.createElement("div");
                 card.className = "card";
                 card.innerHTML = `
+                <img src="images/${item.picName}" class="card-img-top" alt="...">
                         <div class="card-body d-flex flex-column mt-auto">
                             <h5 class="card-title" id="first-movie">${item.title}</h5>
                             <p class="card-text">Genre: ${item.genre}</p>
@@ -23,6 +25,7 @@ function getAllMovies() {
                             <p class="card-text">Rating: ${item.rating}</p>
                             <p class="card-text">Director: ${item.director}</p>
                             <p class="card-text">Cast:${item.cast}</p>
+
                             <div class="card-footer d-grid gap-2 mt-auto">
                                 <button type="button" data-href="#" class="btn btn-dark btn-sm">Update</button>
                                 <button type="button" data-href="#" class="btn btn-dark btn-sm">Delete</button>
